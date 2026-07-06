@@ -64,7 +64,7 @@ img {
 }
 
 section {
-  scroll-margin-top: 72px;
+  scroll-margin-top: 60px;
 }
 
 ::selection {
@@ -82,6 +82,44 @@ button {
 }
 
 /* ===============================
+   HERO SLOW ZOOM ANIMATION
+================================ */
+
+.hero-slow-zoom {
+  transform: scale(1.55);
+  transform-origin: center center;
+  animation: heroSlowZoomMobile 18s ease-out forwards;
+  will-change: transform;
+}
+
+@keyframes heroSlowZoomMobile {
+  from {
+    transform: scale(1.55);
+  }
+
+  to {
+    transform: scale(1.65);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-slow-zoom {
+    transform: scale(1);
+    animation: heroSlowZoomDesktop 20s ease-out forwards;
+  }
+
+  @keyframes heroSlowZoomDesktop {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.08);
+    }
+  }
+}
+
+/* ===============================
    IMAGE + CARD ANIMATION
 ================================ */
 
@@ -90,10 +128,20 @@ button {
 }
 
 .zoom-img {
-  transition:
-    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1);
+  transform-origin: center center;
+  animation: imageSlowZoom 16s ease-out forwards;
   will-change: transform;
+}
+
+@keyframes imageSlowZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
 }
 
 .card-zoom {
@@ -107,7 +155,6 @@ button {
 @media (hover: hover) {
   .image-frame:hover .zoom-img,
   .card-zoom:hover .zoom-img {
-    transform: scale(1.07);
     filter: saturate(1.06) contrast(1.04);
   }
 
@@ -127,13 +174,12 @@ button {
 }
 
 /* ===============================
-   SCROLL REVEAL - NO BLUR
+   SCROLL REVEAL
 ================================ */
 
 .reveal {
   opacity: 0;
   transform: translateY(26px);
-  filter: none !important;
   transition:
     opacity 750ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -142,7 +188,6 @@ button {
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
-  filter: none !important;
 }
 
 .reveal-delay-1 {
@@ -162,41 +207,9 @@ button {
 }
 
 /* ===============================
-   HEADER FIX
+   DESKTOP NAV
 ================================ */
 
-.site-header,
-.header,
-.navbar {
-  min-height: 62px !important;
-  height: 62px !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-}
-
-.brand,
-.logo,
-.site-logo {
-  display: flex;
-  align-items: center;
-}
-
-.brand img,
-.logo img,
-.site-logo img {
-  object-fit: contain;
-}
-
-/* hide company text beside logo */
-.brand-title,
-.brand-text,
-.logo-text,
-.site-title,
-.company-name {
-  display: none !important;
-}
-
-/* desktop header nav */
 .nav-link {
   position: relative;
   display: inline-flex;
@@ -233,7 +246,10 @@ button {
   transform: scale(0.96);
 }
 
-/* mobile dropdown nav */
+/* ===============================
+   MOBILE MENU
+================================ */
+
 .mobile-nav-link {
   transition:
     transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -256,45 +272,6 @@ button {
 }
 
 /* ===============================
-   HERO GRADIENT FIX
-================================ */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  background: var(--deep);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(6, 24, 15, 0.82) 0%,
-      rgba(6, 24, 15, 0.62) 45%,
-      rgba(6, 24, 15, 0.22) 100%
-    );
-}
-
-.hero > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* remove light/white overlay if any */
-.hero .white-overlay,
-.hero .light-overlay,
-.hero-overlay-light,
-.hero-gradient-light,
-.white-gradient {
-  display: none !important;
-}
-
-/* ===============================
    FORM POLISH
 ================================ */
 
@@ -310,215 +287,26 @@ textarea:focus {
 }
 
 /* ===============================
-   REMOVE STICKY CALL / WHATSAPP BAR
-================================ */
-
-.mobile-bottom-cta,
-.bottom-cta,
-.sticky-cta,
-.footer-sticky,
-.mobile-sticky-buttons,
-.floating-cta,
-.whatsapp-float,
-.call-float,
-.fixed-call-whatsapp,
-.sticky-contact-bar {
-  display: none !important;
-}
-
-/* ===============================
-   FINAL CONTACT BUTTONS
-   Use these classes at very last contact/footer section
-================================ */
-
-.final-contact-buttons {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.final-contact-btn {
-  width: 100%;
-  min-height: 52px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  border: 1px solid transparent;
-  transition:
-    transform 250ms ease,
-    background 250ms ease,
-    border-color 250ms ease,
-    box-shadow 250ms ease;
-}
-
-.final-contact-btn:active {
-  transform: scale(0.98);
-}
-
-.final-contact-btn.call {
-  background: var(--deep);
-  color: #ffffff;
-  box-shadow: 0 14px 30px rgba(6, 24, 15, 0.18);
-}
-
-.final-contact-btn.email {
-  background: var(--card);
-  color: var(--green);
-  border-color: var(--line);
-}
-
-.final-contact-btn.whatsapp {
-  background: var(--whatsapp);
-  color: #ffffff;
-  box-shadow: 0 14px 30px rgba(47, 125, 70, 0.2);
-}
-
-@media (min-width: 768px) {
-  .final-contact-buttons {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ===============================
-   MOBILE FIXES
+   MOBILE POLISH
 ================================ */
 
 @media (max-width: 768px) {
   section {
-    scroll-margin-top: 58px;
-  }
-
-  header,
-.site-header,
-.header,
-.navbar {
-  min-height: 54px !important;
-  height: 54px !important;
-  padding: 5px 16px !important;
-}
-
-  .brand,
-  .logo,
-  .site-logo {
-    gap: 0 !important;
-  }
-
-  .brand-title,
-  .brand-text,
-  .logo-text,
-  .site-title,
-  .company-name {
-    display: none !important;
-  }
-
-  .brand img,
-  .logo img,
-  .site-logo img {
-    height: 40px !important;
-    max-height: 40px !important;
-    width: auto !important;
-    object-fit: contain !important;
-  }
-
-  .menu-button,
-  .hamburger,
-  .mobile-menu-button {
-    width: 46px !important;
-    height: 46px !important;
-  }
-
-  .mobile-hero-title {
-    font-size: 40px;
-    line-height: 0.95;
-  }
-
-  .mobile-section-title {
-    font-size: 38px;
-    line-height: 0.98;
+    scroll-margin-top: 54px;
   }
 
   .reveal {
     transform: translateY(16px);
-    filter: none !important;
   }
 
   .card-zoom:active {
     transform: scale(0.99);
   }
-
-  body,
-  main,
-  section,
-  article,
-  header,
-  footer,
-  nav {
-    filter: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  span,
-  a,
-  button,
-  li {
-    filter: none !important;
-    text-shadow: none !important;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  .hero::before {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(6, 24, 15, 0.18) 0%,
-        rgba(6, 24, 15, 0.58) 46%,
-        rgba(6, 24, 15, 0.9) 100%
-      ) !important;
-  }
-
-  .mobile-bottom-cta,
-  .bottom-cta,
-  .sticky-cta,
-  .footer-sticky,
-  .mobile-sticky-buttons,
-  .floating-cta,
-  .whatsapp-float,
-  .call-float,
-  .fixed-call-whatsapp,
-  .sticky-contact-bar {
-    display: none !important;
-  }
 }
 
 @media (max-width: 640px) {
   section {
-    scroll-margin-top: 54px;
-  }
-
-  .mobile-hero-title {
-    font-size: 38px;
-    line-height: 0.96;
-  }
-
-  .mobile-section-title {
-    font-size: 36px;
-    line-height: 1;
-  }
-
-  .final-contact-btn {
-    min-height: 50px;
-    font-size: 15px;
+    scroll-margin-top: 50px;
   }
 }
 
@@ -533,212 +321,12 @@ textarea:focus {
 
   .reveal,
   .card-zoom,
-  .zoom-img {
+  .zoom-img,
+  .hero-slow-zoom {
+    animation: none !important;
     opacity: 1 !important;
     transform: none !important;
-    filter: none !important;
     transition: none !important;
-  }
-}
-/* ===============================
-   HERO TITLE FIX
-   Removes big gap between title parts
-================================ */
-
-.hero-title {
-  font-size: 92px;
-  line-height: 0.95;
-}
-
-.hero-title-line {
-  display: block;
-}
-
-.hero-title-italic {
-  margin-top: 6px;
-  font-style: italic;
-  color: #ead9bd;
-}
-
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 42px !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.035em !important;
-  }
-
-  .hero-title-italic {
-    margin-top: 4px;
-  }
-}
-
-@media (max-width: 420px) {
-  .hero-title {
-    font-size: 38px !important;
-  }
-}
-/* ===============================
-   SECTION TITLE FIX
-================================ */
-
-.section-title-clean {
-  font-size: 72px;
-  line-height: 0.98;
-}
-
-.section-title-clean span {
-  display: block;
-}
-
-.section-title-italic {
-  margin-top: 6px;
-  font-style: italic;
-  color: var(--green-soft);
-}
-
-@media (max-width: 768px) {
-  .section-title-clean {
-    font-size: 38px !important;
-    line-height: 1.04 !important;
-  }
-
-  .section-title-italic {
-    margin-top: 4px;
-  }
-}
-
-@media (max-width: 420px) {
-  .section-title-clean {
-    font-size: 36px !important;
-  }
-}
-
-/* ===============================
-   OPAQUE CREAM HEADER
-================================ */
-
-.site-cream-header {
-  background: var(--cream) !important;
-  border-bottom: 1px solid var(--line) !important;
-  box-shadow: 0 8px 24px rgba(6, 24, 15, 0.06) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-@media (max-width: 768px) {
-  .site-cream-header {
-    background: var(--cream) !important;
-    border-bottom: 1px solid var(--line) !important;
-    box-shadow: 0 6px 18px rgba(6, 24, 15, 0.05) !important;
-  }
-}
-/* ===============================
-   FINAL OPAQUE CREAM HEADER
-================================ */
-
-header.site-cream-header {
-  background-color: #f7f5ee !important;
-  background-image: none !important;
-  border-bottom: 1px solid #d8d1c5 !important;
-  box-shadow: 0 8px 24px rgba(6, 24, 15, 0.08) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-header.site-cream-header > div {
-  background-color: #f7f5ee !important;
-}
-
-@media (max-width: 768px) {
-  header.site-cream-header {
-    background-color: #f7f5ee !important;
-    background-image: none !important;
-    border-bottom: 1px solid #d8d1c5 !important;
-    box-shadow: 0 6px 18px rgba(6, 24, 15, 0.06) !important;
-  }
-
-  header.site-cream-header > div {
-    background-color: #f7f5ee !important;
-  }
-}
-/* ===============================
-   FINAL COMPACT CREAM HEADER
-================================ */
-
-header.site-cream-header {
-  height: 48px !important;
-  min-height: 48px !important;
-  background: #f7f5ee !important;
-  border-bottom: 1px solid #d8d1c5 !important;
-  box-shadow: 0 4px 12px rgba(6, 24, 15, 0.06) !important;
-}
-
-header.site-cream-header > div {
-  height: 48px !important;
-  min-height: 48px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-header.site-cream-header img {
-  max-height: 32px !important;
-}
-
-@media (min-width: 768px) {
-  header.site-cream-header {
-    height: 54px !important;
-    min-height: 54px !important;
-  }
-
-  header.site-cream-header > div {
-    height: 54px !important;
-    min-height: 54px !important;
-  }
-
-  header.site-cream-header img {
-    max-height: 36px !important;
-  }
-}
-/* ===============================
-   FINAL FORCE SMALL MOBILE HEADER
-================================ */
-
-@media (max-width: 767px) {
-  header.site-cream-header {
-    height: 46px !important;
-    min-height: 46px !important;
-    max-height: 46px !important;
-    background: #f7f5ee !important;
-    border-bottom: 1px solid #d8d1c5 !important;
-    box-shadow: 0 3px 10px rgba(6, 24, 15, 0.06) !important;
-    overflow: visible !important;
-  }
-
-  header.site-cream-header > div {
-    height: 46px !important;
-    min-height: 46px !important;
-    max-height: 46px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-
-  header.site-cream-header a[aria-label="ForestnFlora Miyawaki home"] {
-    height: 46px !important;
-    max-height: 46px !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  header.site-cream-header img {
-    max-height: 28px !important;
-  }
-
-  header.site-cream-header button {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
+    filter: none !important;
   }
 }

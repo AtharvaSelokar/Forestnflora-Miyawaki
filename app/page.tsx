@@ -146,7 +146,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "Forestnflora Miyawaki",
   url: "https://forestnfloramiyawaki.com",
-  telephone: "8830097072",
+  telephone: "+918830097072",
   email: "forestnfloramiyawaki@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -204,7 +204,7 @@ Project Details:
 ${formData.message}
     `.trim();
 
-    const whatsappUrl = `https://wa.me/8830097072?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/918830097072?text=${encodeURIComponent(
       inquiryMessage
     )}`;
 
@@ -314,7 +314,7 @@ ${formData.message}
 
     <div className="flex items-center gap-2">
       <a
-        href="https://wa.me/8830097072"
+        href="https://wa.me/918830097072"
         target="_blank"
         rel="noreferrer"
         className="hidden rounded-full bg-[var(--whatsapp)] px-6 py-2 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-[var(--whatsapp-dark)] lg:inline-flex"
@@ -371,7 +371,7 @@ ${formData.message}
         ))}
 
         <a
-          href="https://wa.me/8830097072"
+          href="https://wa.me/918830097072"
           target="_blank"
           rel="noreferrer"
           onClick={() => setMobileMenuOpen(false)}
@@ -395,13 +395,13 @@ ${formData.message}
       <source media="(min-width: 768px)" srcSet="/images/hero-desktop.jpg" />
 
       <img
-        src="/images/hero-desktop.webp"
-        alt="Miyawaki forest development in Nagpur"
-        className="absolute inset-0 h-full w-full scale-[1.55] object-cover object-center md:scale-100"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-      />
+  src="/images/hero-desktop.webp"
+  alt="Miyawaki forest development in Nagpur"
+  className="hero-slow-zoom absolute inset-0 h-full w-full object-cover object-center"
+  loading="eager"
+  fetchPriority="high"
+  decoding="async"
+/>
     </picture>
 
     {/* Light overlay only */}
@@ -456,10 +456,13 @@ ${formData.message}
         <div className="reveal mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-2 lg:items-center lg:gap-14">
           <div className="image-frame card-zoom">
             <img
-              src="/images/about-forest.jpg"
-              alt="Dense native forest plantation"
-              className="zoom-img h-[260px] w-full object-cover md:h-[560px]"
-            />
+  src="/images/about-forest.jpg"
+  alt="Dense native forest plantation"
+  className="zoom-img h-[260px] w-full object-cover md:h-[560px]"
+  loading="eager"
+  fetchPriority="high"
+  decoding="async"
+/>
           </div>
 
           <div>
@@ -981,7 +984,7 @@ ${formData.message}
           <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-3">
             <a
   href="tel:8830097072"
-  className="flex min-h-[52px] items-center justify-center rounded-full bg-[#2f7d46] px-6 text-sm font-black text-white shadow-lg transition-colors hover:bg-[#25683a]"
+  className="flex min-h-[52px] items-center justify-center rounded-full bg-[#46B969] px-6 text-sm font-black text-white shadow-lg transition-colors hover:bg-[#25683a]"
 >
   Call Now
 </a>
@@ -994,7 +997,7 @@ ${formData.message}
             </a>
 
             <a
-              href="https://wa.me/8830097072"
+              href="https://wa.me/918830097072"
               target="_blank"
               rel="noreferrer"
               className="flex min-h-[52px] items-center justify-center rounded-full bg-[var(--whatsapp)] px-6 text-sm font-black text-white shadow-lg"

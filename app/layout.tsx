@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://forestnfloramiyawaki.com"),
+
   title:
     "Miyawaki Forest in Nagpur | ForestnFlora Miyawaki Plantation & CSR Projects",
+
   description:
     "ForestnFlora Miyawaki develops dense native Miyawaki forests, CSR plantation projects, urban forests, and industrial green belts in Nagpur, Maharashtra.",
+
   keywords: [
     "Miyawaki forest Nagpur",
     "Miyawaki plantation Nagpur",
@@ -17,19 +21,20 @@ export const metadata: Metadata = {
     "industrial green belt Nagpur",
     "ForestnFlora Miyawaki",
   ],
+
   alternates: {
-    canonical: "https://forestnfloramiyawaki.com",
+    canonical: "/",
   },
+
   openGraph: {
-    title:
-      "ForestnFlora Miyawaki | Miyawaki Forest Development in Nagpur",
+    title: "ForestnFlora Miyawaki | Miyawaki Forest Development in Nagpur",
     description:
       "Dense native Miyawaki forests, CSR plantation projects, and urban forest development for industries, schools, institutions, and civic land.",
-    url: "https://forestnfloramiyawaki.com",
+    url: "/",
     siteName: "ForestnFlora Miyawaki",
     images: [
       {
-        url: "https://forestnfloramiyawaki.com/images/hero-desktop.webp",
+        url: "/images/hero-desktop.webp",
         width: 1200,
         height: 630,
         alt: "ForestnFlora Miyawaki forest development in Nagpur",
