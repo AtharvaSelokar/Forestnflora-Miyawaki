@@ -197,7 +197,7 @@ export default function HomePage() {
 
       {/* Header */}
       <header className="site-cream-header fixed left-0 right-0 top-0 z-[999]">
-        <div className="mx-auto flex h-[56px] max-w-[1440px] items-center justify-between px-4 md:h-[60px] md:px-10">
+        <div className="mx-auto flex h-[47px] max-w-[1440px] items-center justify-between px-4 md:h-[60px] md:px-10">
           <a
   href="#home"
   aria-label="ForestnFlora Miyawaki home"
@@ -242,7 +242,7 @@ export default function HomePage() {
               aria-label="Open menu"
               aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen((open) => !open)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--card)] text-[var(--green)] shadow-md lg:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--card)] text-[var(--green)] shadow-md lg:hidden"
             >
               <span className="relative h-4 w-5">
                 <span
@@ -296,61 +296,65 @@ export default function HomePage() {
       </header>
 
       {/* Hero */}
-      <section id="home">
-        <div className="image-frame relative min-h-[640px] overflow-hidden bg-[var(--deep)] md:min-h-[760px]">
-          <img
-            src="/images/hero-forest.jpg"
-            alt="Miyawaki forest development in Nagpur"
-            className="zoom-img absolute inset-0 h-full w-full object-cover"
-          />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06180f]/62 via-[#06180f]/24 to-transparent md:bg-gradient-to-r md:from-[#06180f]/66 md:via-[#06180f]/28 md:to-transparent" />
+<section id="home" className="pt-[48px] md:pt-[54px]">
+  <div className="relative isolate h-[calc(100svh-48px)] min-h-[560px] max-h-[720px] overflow-hidden bg-black md:h-[760px] md:max-h-none">
+    <picture>
+      <source media="(max-width: 767px)" srcSet="/images/hero-mobile.jpg" />
+      <source media="(min-width: 768px)" srcSet="/images/hero-desktop.jpg" />
+      <img
+        src="/images/hero-desktop.jpg"
+        alt="Miyawaki forest development in Nagpur"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+      />
+    </picture>
 
-<div className="absolute inset-0 bg-gradient-to-b from-[#06180f]/8 via-transparent to-transparent" />
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-[#06180f]/95 via-[#06180f]/62 to-[#06180f]/10 md:bg-gradient-to-r md:from-[#06180f]/92 md:via-[#06180f]/62 md:to-[#06180f]/14" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#06180f]/25 via-transparent to-transparent" /> */}
+    {/* black transparent overlay, no green block */}
+    <div className="absolute inset-0 bg-black/20" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-black/18 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/20 md:to-transparent" />
 
-          <div className="relative z-10 mx-auto flex min-h-[640px] max-w-[1440px] flex-col justify-end px-5 pb-10 pt-24 md:min-h-[760px] md:px-10 md:pb-20">
-            <p className="mb-4 text-[10px] font-extrabold uppercase tracking-[0.3em] text-[var(--gold)] md:mb-5 md:text-[11px] md:tracking-[0.35em]">
-              Miyawaki Forest Development
+    <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-5 pb-8 md:px-10 md:pb-20">
+      <p className="mb-3 text-[9px] font-extrabold uppercase tracking-[0.28em] text-[var(--gold)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] md:mb-5 md:text-[11px] md:tracking-[0.35em]">
+        Miyawaki Forest Development
+      </p>
+
+      <h1
+        className="brand max-w-[850px] font-semibold tracking-[-0.04em] text-white drop-shadow-[0_5px_20px_rgba(0,0,0,0.95)]"
+        style={{
+          fontSize: "clamp(34px, 11vw, 76px)",
+          lineHeight: "0.98",
+        }}
+      >
+        Build a forest, not just a plantation.
+      </h1>
+
+      <p className="mt-4 max-w-2xl text-[14px] font-medium leading-7 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] md:mt-6 md:text-[22px] md:leading-10">
+        Dense, biodiverse, native forests for CSR projects, industries, campuses
+        and civic land across Nagpur and Maharashtra.
+      </p>
+
+      <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/40 pt-4 md:mt-8 md:max-w-3xl md:grid-cols-4 md:gap-5 md:pt-6">
+        {[
+          ["4,638+", "saplings"],
+          ["29+", "species"],
+          ["1,500 m²", "forest area"],
+          ["3-year", "care support"],
+        ].map(([value, label]) => (
+          <div key={label}>
+            <p className="text-[22px] font-extrabold text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)] md:text-[34px]">
+              {value}
             </p>
-
-            <h1
-  className="brand max-w-[760px] font-semibold tracking-[-0.04em] text-white"
-  style={{
-    fontSize: "clamp(42px, 6vw, 76px)",
-    lineHeight: "0.98",
-  }}
->
-  <span style={{ display: "block" }}>Build a forest,
-    not just a plantation.
-  </span>
-</h1>
-
-            <p className="mt-5 max-w-2xl text-[16px] font-medium leading-8 text-white drop-shadow-[0_3px_12px_rgba(0,0,0,0.65)] md:mt-6 md:text-[22px] md:leading-10">
-              Dense, biodiverse, native forests for CSR projects, industries,
-              campuses and civic land across Nagpur and Maharashtra.
+            <p className="mt-1 text-[7px] font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.95)] md:text-[10px]">
+              {label}
             </p>
-
-            <div className="mt-6 grid grid-cols-2 gap-3 border-t border-white/25 pt-5 md:mt-8 md:max-w-3xl md:grid-cols-4 md:gap-5 md:pt-6">
-              {[
-                ["4,638+", "saplings"],
-                ["29+", "species"],
-                ["1,500 m²", "forest area"],
-                ["3-year", "care support"],
-              ].map(([value, label]) => (
-                <div key={label} className="reveal">
-                  <p className="text-[25px] font-extrabold text-white md:text-[34px]">
-                    {value}
-                  </p>
-                  <p className="mt-1 text-[8px] font-bold uppercase tracking-[0.2em] text-white/60 md:text-[10px]">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* About */}
       <section

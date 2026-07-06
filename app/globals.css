@@ -661,3 +661,41 @@ header.site-cream-header > div {
     background-color: #f7f5ee !important;
   }
 }
+/* ===============================
+   FINAL COMPACT CREAM HEADER
+================================ */
+
+header.site-cream-header {
+  height: 48px !important;
+  min-height: 48px !important;
+  background: #f7f5ee !important;
+  border-bottom: 1px solid #d8d1c5 !important;
+  box-shadow: 0 4px 12px rgba(6, 24, 15, 0.06) !important;
+}
+
+header.site-cream-header > div {
+  height: 48px !important;
+  min-height: 48px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+header.site-cream-header img {
+  max-height: 32px !important;
+}
+
+@media (min-width: 768px) {
+  header.site-cream-header {
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+
+  header.site-cream-header > div {
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+
+  header.site-cream-header img {
+    max-height: 36px !important;
+  }
+}
