@@ -699,3 +699,46 @@ header.site-cream-header img {
     max-height: 36px !important;
   }
 }
+/* ===============================
+   FINAL FORCE SMALL MOBILE HEADER
+================================ */
+
+@media (max-width: 767px) {
+  header.site-cream-header {
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    background: #f7f5ee !important;
+    border-bottom: 1px solid #d8d1c5 !important;
+    box-shadow: 0 3px 10px rgba(6, 24, 15, 0.06) !important;
+    overflow: visible !important;
+  }
+
+  header.site-cream-header > div {
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  header.site-cream-header a[aria-label="ForestnFlora Miyawaki home"] {
+    height: 46px !important;
+    max-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  header.site-cream-header img {
+    max-height: 28px !important;
+  }
+
+  header.site-cream-header button {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+}

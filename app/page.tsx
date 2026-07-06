@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
+import { FormEvent, useEffect, useState } from "react";
 const services = [
   {
     title: "Miyawaki Forest",
@@ -165,6 +164,53 @@ const jsonLd = {
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    phone: "",
+    email: "",
+    location: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    field: keyof typeof formData,
+    value: string
+  ) => {
+    setFormData((current) => ({
+      ...current,
+      [field]: value,
+    }));
+  };
+
+  const handleInquirySubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      alert("Please fill Name, Phone and Project Details before sending inquiry.");
+      return;
+    }
+
+    const inquiryMessage = `
+New Miyawaki Project Inquiry
+
+Name: ${formData.name}
+Company / Organization: ${formData.company || "Not provided"}
+Phone: ${formData.phone}
+Email: ${formData.email || "Not provided"}
+Project Location: ${formData.location || "Not provided"}
+
+Project Details:
+${formData.message}
+    `.trim();
+
+    const whatsappUrl = `https://wa.me/918830097072?text=${encodeURIComponent(
+      inquiryMessage
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
 
@@ -196,107 +242,150 @@ export default function HomePage() {
       />
 
       {/* Header */}
-      <header className="site-cream-header fixed left-0 right-0 top-0 z-[999]">
-        <div className="mx-auto flex h-[47px] max-w-[1440px] items-center justify-between px-4 md:h-[60px] md:px-10">
-          <a
-  href="#home"
-  aria-label="ForestnFlora Miyawaki home"
-  className="flex items-center gap-2.5"
-  onClick={() => setMobileMenuOpen(false)}
+<header
+  className="fixed left-0 right-0 top-0 z-[999]"
+  style={{
+    height: "44px",
+    minHeight: "44px",
+    maxHeight: "44px",
+    background: "#f7f5ee",
+    borderBottom: "1px solid #d8d1c5",
+    boxShadow: "0 3px 10px rgba(6, 24, 15, 0.06)",
+  }}
 >
-  <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white/45 md:h-11 md:w-11">
-    <img
-      src="/images/logo.png"
-      alt="ForestnFlora Miyawaki"
-      className="h-full w-full object-contain"
-    />
-  </span>
+  <div
+    className="mx-auto flex max-w-[1440px] items-center justify-between"
+    style={{
+      height: "44px",
+      minHeight: "44px",
+      maxHeight: "44px",
+      paddingLeft: "12px",
+      paddingRight: "12px",
+    }}
+  >
+    <a
+      href="#home"
+      aria-label="ForestnFlora Miyawaki home"
+      className="flex min-w-0 items-center gap-2"
+      style={{
+        height: "44px",
+        maxHeight: "44px",
+      }}
+      onClick={() => setMobileMenuOpen(false)}
+    >
+      <span
+        className="flex shrink-0 items-center justify-center overflow-hidden rounded-full"
+        style={{
+          height: "28px",
+          width: "28px",
+        }}
+      >
+        <img
+          src="/images/logo.png"
+          alt="ForestnFlora Miyawaki"
+          style={{
+            height: "28px",
+            width: "28px",
+            objectFit: "contain",
+            display: "block",
+          }}
+        />
+      </span>
 
-  <span className="leading-none">
-    <span className="brand block text-[17px] font-bold leading-none text-[var(--green)] md:text-[22px]">
-      Forestnfloramiyawaki.com
-    </span>
-  </span>
-</a>  
+      <span
+        className="brand block truncate whitespace-nowrap font-bold text-[var(--green)]"
+        style={{
+          maxWidth: "235px",
+          fontSize: "14px",
+          lineHeight: "1",
+        }}
+      >
+        Forestnfloramiyawaki.com
+      </span>
+    </a>
 
-          <nav className="hidden items-center gap-7 text-[14px] font-semibold lg:flex">
-            {navLinks.map((link) => (
-              <a key={link.href} className="nav-link" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
+    <nav className="hidden items-center gap-7 text-[14px] font-semibold lg:flex">
+      {navLinks.map((link) => (
+        <a key={link.href} className="nav-link" href={link.href}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
 
-          <div className="flex items-center gap-2">
-            <a
-              href="https://wa.me/918830097072"
-              target="_blank"
-              rel="noreferrer"
-              className="hidden rounded-full bg-[var(--whatsapp)] px-6 py-2 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-[var(--whatsapp-dark)] lg:inline-flex"
-            >
-              WhatsApp
-            </a>
+    <div className="flex items-center gap-2">
+      <a
+        href="https://wa.me/918830097072"
+        target="_blank"
+        rel="noreferrer"
+        className="hidden rounded-full bg-[var(--whatsapp)] px-6 py-2 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-[var(--whatsapp-dark)] lg:inline-flex"
+      >
+        WhatsApp
+      </a>
 
-            <button
-              type="button"
-              aria-label="Open menu"
-              aria-expanded={mobileMenuOpen}
-              onClick={() => setMobileMenuOpen((open) => !open)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--card)] text-[var(--green)] shadow-md lg:hidden"
-            >
-              <span className="relative h-4 w-5">
-                <span
-                  className={`absolute left-0 top-0 h-[2px] w-5 bg-[var(--green)] transition-transform ${
-                    mobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-[7px] h-[2px] w-5 bg-[var(--green)] transition-opacity ${
-                    mobileMenuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-[14px] h-[2px] w-5 bg-[var(--green)] transition-transform ${
-                    mobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
-                  }`}
-                />
-              </span>
-            </button>
-          </div>
-        </div>
+      <button
+        type="button"
+        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={mobileMenuOpen}
+        onClick={() => setMobileMenuOpen((open) => !open)}
+        className="inline-flex items-center justify-center rounded-full border border-[var(--line)] bg-[var(--card)] text-[var(--green)] shadow-md lg:hidden"
+        style={{
+          height: "32px",
+          width: "32px",
+          minHeight: "32px",
+          minWidth: "32px",
+        }}
+      >
+        <span className="relative h-4 w-5">
+          <span
+            className={`absolute left-0 top-0 h-[2px] w-5 bg-[var(--green)] transition-transform ${
+              mobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`absolute left-0 top-[7px] h-[2px] w-5 bg-[var(--green)] transition-opacity ${
+              mobileMenuOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`absolute left-0 top-[14px] h-[2px] w-5 bg-[var(--green)] transition-transform ${
+              mobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+            }`}
+          />
+        </span>
+      </button>
+    </div>
+  </div>
 
-        <div
-          className={`lg:hidden ${
-            mobileMenuOpen ? "block" : "hidden"
-          } mx-4 rounded-3xl border border-[var(--line)] bg-[var(--cream)]/95 p-3 shadow-2xl`}
+  {mobileMenuOpen && (
+    <div className="mx-4 rounded-3xl border border-[var(--line)] bg-[var(--cream)]/98 p-3 shadow-2xl lg:hidden">
+      <nav className="grid gap-2">
+        {navLinks.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            onClick={() => setMobileMenuOpen(false)}
+            className="mobile-nav-link rounded-2xl border border-[var(--line)] bg-[var(--card)] px-4 py-3 text-[15px] font-extrabold text-[var(--green)]"
+          >
+            {link.label}
+          </a>
+        ))}
+
+        <a
+          href="https://wa.me/918830097072"
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => setMobileMenuOpen(false)}
+          className="rounded-2xl bg-[var(--whatsapp)] px-4 py-3 text-center text-[15px] font-extrabold text-white"
         >
-          <nav className="grid gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="mobile-nav-link rounded-2xl border border-[var(--line)] bg-[var(--card)] px-4 py-3 text-[15px] font-extrabold text-[var(--green)]"
-              >
-                {link.label}
-              </a>
-            ))}
-
-            <a
-              href="https://wa.me/918830097072"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="rounded-2xl bg-[var(--whatsapp)] px-4 py-3 text-center text-[15px] font-extrabold text-white"
-            >
-              WhatsApp
-            </a>
-          </nav>
-        </div>
-      </header>
+          WhatsApp
+        </a>
+      </nav>
+    </div>
+  )}
+</header>
 
       {/* Hero */}
-<section id="home" className="pt-[48px] md:pt-[54px]">
+<section id="home" className="pt-[44px] md:pt-[44px]">
   <div className="relative isolate h-[calc(100svh-48px)] min-h-[560px] max-h-[720px] overflow-hidden bg-black md:h-[760px] md:max-h-none">
     <picture>
       <source media="(max-width: 767px)" srcSet="/images/hero-mobile.jpg" />
@@ -639,10 +728,9 @@ export default function HomePage() {
                 </p>
 
                 <div className="relative z-10 mt-20 md:mt-44">
-                  <h3 className="brand flex items-start gap-3 text-[27px] font-semibold leading-tight text-[var(--green)] md:gap-4 md:text-[40px]">
-                    {step.title}
-                    <span className="mt-2 h-3 w-3 shrink-0 rounded-full bg-[var(--green)] md:mt-3 md:h-4 md:w-4" />
-                  </h3>
+                  <h3 className="brand text-[27px] font-semibold leading-tight text-[var(--green)] md:text-[40px]">
+  {step.title}
+</h3>
 
                   <p className="mt-4 max-w-xl text-[14px] leading-7 text-[var(--muted)] md:mt-5 md:text-[19px] md:leading-8">
                     {step.text}
@@ -689,9 +777,7 @@ export default function HomePage() {
                   {String(index + 1).padStart(2, "0")}
                 </p>
 
-                <p className="relative z-10 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--brown)] md:text-[13px] md:tracking-[0.35em]">
-                  {String(index + 1).padStart(2, "0")} / 06
-                </p>
+                
 
                 <h3 className="brand relative z-10 mt-5 text-[26px] font-semibold text-[var(--green)] md:mt-7 md:text-[30px]">
                   {reason.title}
@@ -777,8 +863,13 @@ export default function HomePage() {
                 <span className="block text-[10px] font-extrabold uppercase tracking-[0.3em] text-[var(--brown)] md:text-[12px]">
                   Call
                 </span>
-                 8830097072,
-                8390750811
+                 <a href="tel:+918830097072" className="font-semibold text-[var(--green)]">
+  +91 8830097072
+</a>
+{", "}
+<a href="tel:+918390750811" className="font-semibold text-[var(--green)]">
+  +91 8390750811
+</a>
               </p>
 
               <p>
@@ -797,41 +888,86 @@ export default function HomePage() {
             </div>
           </div>
 
-          <form className="reveal card-zoom hidden border border-[var(--line)] bg-[var(--cream2)] p-7 md:block md:p-12">
-            {[
-              "Your Name *",
-              "Company / Organization",
-              "Phone *",
-              "Email",
-              "Project Location",
-            ].map((label) => (
-              <label key={label} className="mb-9 block">
-                <span className="mb-5 block text-[12px] font-extrabold uppercase tracking-[0.35em] text-[var(--brown)]">
-                  {label}
-                </span>
-                <input className="w-full border-0 border-b border-[#bdb5aa] bg-transparent py-3 outline-none" />
-              </label>
-            ))}
+         <form
+  onSubmit={handleInquirySubmit}
+  className="reveal card-zoom block border border-[var(--line)] bg-[var(--cream2)] p-6 md:p-12"
+>
+  <label className="mb-7 block md:mb-9">
+    <span className="mb-3 block text-[10px] font-extrabold uppercase tracking-[0.28em] text-[var(--brown)] md:mb-5 md:text-[12px] md:tracking-[0.35em]">
+      Your Name *
+    </span>
+    <input
+      value={formData.name}
+      onChange={(event) => handleInputChange("name", event.target.value)}
+      className="w-full border-0 border-b border-[#bdb5aa] bg-transparent py-3 text-[15px] outline-none md:text-base"
+    />
+  </label>
 
-            <label className="block">
-              <span className="mb-5 block text-[12px] font-extrabold uppercase tracking-[0.35em] text-[var(--brown)]">
-                Tell us about your project *
-              </span>
+  <label className="mb-7 block md:mb-9">
+    <span className="mb-3 block text-[10px] font-extrabold uppercase tracking-[0.28em] text-[var(--brown)] md:mb-5 md:text-[12px] md:tracking-[0.35em]">
+      Company / Organization
+    </span>
+    <input
+      value={formData.company}
+      onChange={(event) => handleInputChange("company", event.target.value)}
+      className="w-full border-0 border-b border-[#bdb5aa] bg-transparent py-3 text-[15px] outline-none md:text-base"
+    />
+  </label>
 
-              <textarea
-                rows={5}
-                placeholder="Land size, timelines, budget range, CSR goals..."
-                className="w-full resize-none border-0 border-b border-[#bdb5aa] bg-transparent py-3 text-lg outline-none placeholder:text-[#9aa097]"
-              />
-            </label>
+  <label className="mb-7 block md:mb-9">
+    <span className="mb-3 block text-[10px] font-extrabold uppercase tracking-[0.28em] text-[var(--brown)] md:mb-5 md:text-[12px] md:tracking-[0.35em]">
+      Phone *
+    </span>
+    <input
+      value={formData.phone}
+      onChange={(event) => handleInputChange("phone", event.target.value)}
+      className="w-full border-0 border-b border-[#bdb5aa] bg-transparent py-3 text-[15px] outline-none md:text-base"
+    />
+  </label>
 
-            <button
-              type="button"
-              className="mt-10 bg-[var(--green)] px-10 py-5 font-semibold text-white"
-            >
-              Send inquiry →
-            </button>
-          </form>
+  <label className="mb-7 block md:mb-9">
+    <span className="mb-3 block text-[10px] font-extrabold uppercase tracking-[0.28em] text-[var(--brown)] md:mb-5 md:text-[12px] md:tracking-[0.35em]">
+      Email
+    </span>
+    <input
+      value={formData.email}
+      onChange={(event) => handleInputChange("email", event.target.value)}
+      className="w-full border-0 border-b border-[#bdb5aa] bg-transparent py-3 text-[15px] outline-none md:text-base"
+    />
+  </label>
+
+  <label className="mb-7 block md:mb-9">
+    <span className="mb-3 block text-[10px] font-extrabold uppercase tracking-[0.28em] text-[var(--brown)] md:mb-5 md:text-[12px] md:tracking-[0.35em]">
+      Project Location
+    </span>
+    <input
+      value={formData.location}
+      onChange={(event) => handleInputChange("location", event.target.value)}
+      className="w-full border-0 border-b border-[#bdb5aa] bg-transparent py-3 text-[15px] outline-none md:text-base"
+    />
+  </label>
+
+  <label className="block">
+    <span className="mb-3 block text-[10px] font-extrabold uppercase tracking-[0.28em] text-[var(--brown)] md:mb-5 md:text-[12px] md:tracking-[0.35em]">
+      Tell us about your project *
+    </span>
+
+    <textarea
+      rows={5}
+      value={formData.message}
+      onChange={(event) => handleInputChange("message", event.target.value)}
+      placeholder="Land size, timelines, budget range, CSR goals..."
+      className="w-full resize-none border-0 border-b border-[#bdb5aa] bg-transparent py-3 text-[15px] outline-none placeholder:text-[#9aa097] md:text-lg"
+    />
+  </label>
+
+  <button
+    type="submit"
+    className="mt-8 w-full rounded-full bg-[var(--green)] px-8 py-4 text-sm font-bold text-white shadow-lg md:mt-10 md:w-auto md:rounded-none md:px-10 md:py-5 md:text-base"
+  >
+    Send inquiry on WhatsApp →
+  </button>
+</form>
         </div>
 
         <div className="reveal mx-auto mt-10 max-w-[1280px] border-t border-[var(--line)] pt-8 md:mt-14 md:pt-10">
@@ -842,7 +978,7 @@ export default function HomePage() {
           <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-3">
             <a
   href="tel:+918830097072"
-  className="flex min-h-[52px] items-center justify-center rounded-full bg-[var(---green)] px-6 text-sm font-black text-white shadow-lg"
+  className="flex min-h-[52px] items-center justify-center rounded-full bg-[#2f7d46] px-6 text-sm font-black text-white shadow-lg transition-colors hover:bg-[#25683a]"
 >
   Call Now
 </a>

@@ -1,59 +1,42 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
-const heading = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-const body = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-body",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://forestnfloramiyawaki.com"),
-  title: "Forestnflora Miyawaki | Miyawaki Forest Development in Nagpur",
+  title:
+    "Miyawaki Forest in Nagpur | ForestnFlora Miyawaki Plantation & CSR Projects",
   description:
-    "Forestnflora Miyawaki creates dense native forests, CSR plantation projects, urban dense forests and Miyawaki forest development projects across Nagpur and Maharashtra.",
+    "ForestnFlora Miyawaki develops dense native Miyawaki forests, CSR plantation projects, urban forests, and industrial green belts in Nagpur, Maharashtra.",
   keywords: [
     "Miyawaki forest Nagpur",
     "Miyawaki plantation Nagpur",
+    "forest development Nagpur",
     "CSR plantation Nagpur",
-    "urban dense forest Nagpur",
-    "native forest development Maharashtra",
-    "Butibori MIDC Miyawaki plantation",
-    "tree plantation CSR Maharashtra",
-    "industrial green belt plantation",
+    "urban forest Nagpur",
+    "dense forest plantation",
+    "native tree plantation Maharashtra",
+    "industrial green belt Nagpur",
+    "ForestnFlora Miyawaki",
   ],
   alternates: {
     canonical: "https://forestnfloramiyawaki.com",
   },
   openGraph: {
-    title: "Forestnflora Miyawaki | Build a Forest, Not Just a Plantation",
+    title:
+      "ForestnFlora Miyawaki | Miyawaki Forest Development in Nagpur",
     description:
-      "Dense, biodiverse native forests for CSR projects, industries, campuses and civic land across Nagpur and Maharashtra.",
+      "Dense native Miyawaki forests, CSR plantation projects, and urban forest development for industries, schools, institutions, and civic land.",
     url: "https://forestnfloramiyawaki.com",
-    siteName: "Forestnflora Miyawaki",
+    siteName: "ForestnFlora Miyawaki",
     images: [
       {
-        url: "/images/hero-forest.jpg",
+        url: "https://forestnfloramiyawaki.com/images/hero-desktop.webp",
         width: 1200,
         height: 630,
-        alt: "Forestnflora Miyawaki dense native forest development",
+        alt: "ForestnFlora Miyawaki forest development in Nagpur",
       },
     ],
     locale: "en_IN",
     type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -63,10 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${heading.variable} ${body.variable}`}>
-        {children}
-      </body>
+    <html lang="en-IN">
+      <body>{children}</body>
     </html>
   );
 }
