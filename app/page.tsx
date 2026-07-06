@@ -146,7 +146,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "Forestnflora Miyawaki",
   url: "https://forestnfloramiyawaki.com",
-  telephone: "+918830097072",
+  telephone: "8830097072",
   email: "forestnfloramiyawaki@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -204,7 +204,7 @@ Project Details:
 ${formData.message}
     `.trim();
 
-    const whatsappUrl = `https://wa.me/918830097072?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/8830097072?text=${encodeURIComponent(
       inquiryMessage
     )}`;
 
@@ -300,7 +300,7 @@ ${formData.message}
           lineHeight: "1",
         }}
       >
-        Forestnfloramiyawaki.com
+        Forestnflora Miyawaki
       </span>
     </a>
 
@@ -314,7 +314,7 @@ ${formData.message}
 
     <div className="flex items-center gap-2">
       <a
-        href="https://wa.me/918830097072"
+        href="https://wa.me/8830097072"
         target="_blank"
         rel="noreferrer"
         className="hidden rounded-full bg-[var(--whatsapp)] px-6 py-2 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-[var(--whatsapp-dark)] lg:inline-flex"
@@ -371,7 +371,7 @@ ${formData.message}
         ))}
 
         <a
-          href="https://wa.me/918830097072"
+          href="https://wa.me/8830097072"
           target="_blank"
           rel="noreferrer"
           onClick={() => setMobileMenuOpen(false)}
@@ -386,45 +386,48 @@ ${formData.message}
 
       {/* Hero */}
 <section id="home" className="pt-[44px] md:pt-[44px]">
-  <div className="relative isolate h-[calc(100svh-48px)] min-h-[560px] max-h-[720px] overflow-hidden bg-black md:h-[760px] md:max-h-none">
+  <div className="relative isolate h-[560px] overflow-hidden bg-[var(--cream)] md:h-[760px]">
     <picture>
+      {/* Phone image */}
       <source media="(max-width: 767px)" srcSet="/images/hero-mobile.jpg" />
+
+      {/* Desktop / laptop image */}
       <source media="(min-width: 768px)" srcSet="/images/hero-desktop.jpg" />
+
       <img
-        src="/images/hero-desktop.jpg"
+        src="/images/hero-desktop.webp"
         alt="Miyawaki forest development in Nagpur"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full scale-[1.55] object-cover object-center md:scale-100"
         loading="eager"
         fetchPriority="high"
         decoding="async"
       />
     </picture>
 
-    {/* black transparent overlay, no green block */}
-    <div className="absolute inset-0 bg-black/20" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-black/18 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/20 md:to-transparent" />
+    {/* Light overlay only */}
+    <div className="absolute inset-0 bg-black/[0.10]" />
 
-    <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-5 pb-8 md:px-10 md:pb-20">
-      <p className="mb-3 text-[9px] font-extrabold uppercase tracking-[0.28em] text-[var(--gold)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] md:mb-5 md:text-[11px] md:tracking-[0.35em]">
+    <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-5 pb-7 md:px-10 md:pb-20">
+      <p className="mb-3 text-[8px] font-extrabold uppercase tracking-[0.26em] text-[var(--gold)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] md:mb-5 md:text-[11px] md:tracking-[0.35em]">
         Miyawaki Forest Development
       </p>
 
       <h1
         className="brand max-w-[850px] font-semibold tracking-[-0.04em] text-white drop-shadow-[0_5px_20px_rgba(0,0,0,0.95)]"
         style={{
-          fontSize: "clamp(34px, 11vw, 76px)",
+          fontSize: "clamp(31px, 10vw, 76px)",
           lineHeight: "0.98",
         }}
       >
         Build a forest, not just a plantation.
       </h1>
 
-      <p className="mt-4 max-w-2xl text-[14px] font-medium leading-7 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] md:mt-6 md:text-[22px] md:leading-10">
+      <p className="mt-4 max-w-2xl text-[13px] font-medium leading-6 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] md:mt-6 md:text-[22px] md:leading-10">
         Dense, biodiverse, native forests for CSR projects, industries, campuses
         and civic land across Nagpur and Maharashtra.
       </p>
 
-      <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/40 pt-4 md:mt-8 md:max-w-3xl md:grid-cols-4 md:gap-5 md:pt-6">
+      <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/45 pt-4 md:mt-8 md:max-w-3xl md:grid-cols-4 md:gap-5 md:pt-6">
         {[
           ["4,638+", "saplings"],
           ["29+", "species"],
@@ -432,10 +435,10 @@ ${formData.message}
           ["3-year", "care support"],
         ].map(([value, label]) => (
           <div key={label}>
-            <p className="text-[22px] font-extrabold text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)] md:text-[34px]">
+            <p className="text-[20px] font-extrabold text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)] md:text-[34px]">
               {value}
             </p>
-            <p className="mt-1 text-[7px] font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.95)] md:text-[10px]">
+            <p className="mt-1 text-[7px] font-bold uppercase tracking-[0.18em] text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.95)] md:text-[10px]">
               {label}
             </p>
           </div>
@@ -863,12 +866,12 @@ ${formData.message}
                 <span className="block text-[10px] font-extrabold uppercase tracking-[0.3em] text-[var(--brown)] md:text-[12px]">
                   Call
                 </span>
-                 <a href="tel:+918830097072" className="font-semibold text-[var(--green)]">
-  +91 8830097072
+                 <a href="tel:8830097072" className="font-semibold text-[var(--green)]">
+  8830097072
 </a>
 {", "}
-<a href="tel:+918390750811" className="font-semibold text-[var(--green)]">
-  +91 8390750811
+<a href="tel:8390750811" className="font-semibold text-[var(--green)]">
+  8390750811
 </a>
               </p>
 
@@ -977,7 +980,7 @@ ${formData.message}
 
           <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-3">
             <a
-  href="tel:+918830097072"
+  href="tel:8830097072"
   className="flex min-h-[52px] items-center justify-center rounded-full bg-[#2f7d46] px-6 text-sm font-black text-white shadow-lg transition-colors hover:bg-[#25683a]"
 >
   Call Now
@@ -991,7 +994,7 @@ ${formData.message}
             </a>
 
             <a
-              href="https://wa.me/918830097072"
+              href="https://wa.me/8830097072"
               target="_blank"
               rel="noreferrer"
               className="flex min-h-[52px] items-center justify-center rounded-full bg-[var(--whatsapp)] px-6 text-sm font-black text-white shadow-lg"
