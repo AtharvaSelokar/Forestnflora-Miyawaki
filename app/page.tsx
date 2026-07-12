@@ -453,10 +453,10 @@ ${formData.message}
         id="about"
         className="border-b border-[var(--line)] bg-[var(--cream2)] px-5 py-10 md:px-10 md:py-24"
       >
-        <div className="reveal mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-2 lg:items-center lg:gap-14">
+        <div className="mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-2 lg:items-center lg:gap-14">
           <div className="image-frame card-zoom">
-            <img
-  src="/images/about-forest.jpg"
+           <img
+  src="/images/about-forest.jpg"  
   alt="Dense native forest plantation"
   className="zoom-img h-[260px] w-full object-cover md:h-[560px]"
   loading="eager"
@@ -841,6 +841,22 @@ ${formData.message}
           </div>
         </div>
       </section>
+
+      <div className="mx-auto mt-10 max-w-[1280px]">
+  <a
+    href="/miyawaki-forest-nagpur"
+    className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[var(--green)] px-8 text-sm font-extrabold text-white shadow-lg transition hover:bg-[var(--green-soft)]"
+  >
+    Explore Miyawaki Forest Development in Nagpur →
+  </a>
+</div>
+
+<a
+  href="/miyawaki-forest-india"
+  className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[var(--green)] px-8 text-center text-sm font-extrabold text-white shadow-lg transition hover:bg-[var(--green-soft)]"
+>
+  Explore Miyawaki Forest Development in India →
+</a>
 
       {/* Contact */}
       <section
