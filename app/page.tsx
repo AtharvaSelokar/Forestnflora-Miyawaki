@@ -1,36 +1,37 @@
 "use client";
-
+import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
+
 const services = [
   {
     title: "Miyawaki Forest",
     text: "Dense, native forests grown faster than conventional plantations with layered species and scientific soil preparation.",
-    image: "/images/service-1.jpg",
+    image: "/images/service-1.webp",
   },
   {
     title: "CSR Plantation",
     text: "End-to-end CSR plantation projects — planning, execution, employee drives, documentation and impact reporting.",
-    image: "/images/service-2.jpg",
+    image: "/images/service-2.webp",
   },
   {
     title: "Urban Dense Forest",
     text: "Compact green lungs for cities, schools, factories, hospitals and residential campuses.",
-    image: "/images/service-3.jpg",
+    image: "/images/service-3.webp",
   },
   {
     title: "Avenue Plantation",
     text: "Roadside and boundary tree lines with hardy native species for shade, dust reduction and habitat corridors.",
-    image: "/images/service-4.jpg",
+    image: "/images/service-4.webp",
   },
   {
     title: "Garden Development",
     text: "Landscaped gardens with a native-first philosophy — designed to be low-maintenance, seasonal and biodiverse.",
-    image: "/images/service-5.jpg",
+    image: "/images/service-5.webp",
   },
   {
     title: "Maintenance & Monitoring",
     text: "Care programme with watering, weeding, mulching, replacement and growth monitoring with photo reports.",
-    image: "/images/service-6.jpg",
+    image: "/images/service-6.webp",
   },
 ];
 
@@ -123,12 +124,12 @@ const recognitionPeople = [
 ];
 
 const gallery = [
-  "/images/gallery-1.jpg",
-  "/images/gallery-2.jpg",
-  "/images/gallery-3.jpg",
-  "/images/gallery-4.jpg",
-  "/images/gallery-5.jpg",
-  "/images/gallery-6.jpg",
+  "/images/gallery-1.webp",
+  "/images/gallery-2.webp",
+  "/images/gallery-3.webp",
+  "/images/gallery-4.webp",
+  "/images/gallery-5.webp",
+  "/images/gallery-6.webp",
 ];
 
 const navLinks = [
@@ -282,7 +283,7 @@ ${formData.message}
       >
         <img
           src="/images/logo.png"
-          alt="ForestnFlora Miyawaki"
+          alt="Dense Miyawaki forest plantation developed by ForestnFlora in Nagpur"
           style={{
             height: "28px",
             width: "28px",
@@ -389,10 +390,10 @@ ${formData.message}
   <div className="relative isolate h-[560px] overflow-hidden bg-[var(--cream)] md:h-[760px]">
     <picture>
       {/* Phone image */}
-      <source media="(max-width: 767px)" srcSet="/images/hero-mobile.jpg" />
+      <source media="(max-width: 767px)" srcSet="/images/hero-mobile.webp" />
 
       {/* Desktop / laptop image */}
-      <source media="(min-width: 768px)" srcSet="/images/hero-desktop.jpg" />
+      <source media="(min-width: 768px)" srcSet="/images/hero-desktop.webp" />
 
       <img
   src="/images/hero-desktop.webp"
@@ -456,7 +457,7 @@ ${formData.message}
         <div className="mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-2 lg:items-center lg:gap-14">
           <div className="image-frame card-zoom">
            <img
-  src="/images/about-forest.jpg"  
+  src="/images/about-forest.webp"  
   alt="Dense native forest plantation"
   className="zoom-img h-[260px] w-full object-cover md:h-[560px]"
   loading="eager"
@@ -539,7 +540,7 @@ ${formData.message}
           <div className="mt-8 grid gap-6 lg:mt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
             <div className="reveal image-frame card-zoom">
               <img
-                src="/images/project-1.jpg"
+                src="/images/project-1.webp"
                 alt="Miyawaki Plantation at Butibori MIDC, Nagpur"
                 className="zoom-img h-[280px] w-full object-cover md:h-[620px]"
               />
@@ -631,7 +632,7 @@ ${formData.message}
 
             <div className="reveal image-frame card-zoom">
               <img
-                src="/images/recognition.jpg"
+                src="/images/recognition.webp"
                 alt="Butibori Miyawaki Plantation recognition"
                 className="zoom-img h-[280px] w-full object-cover md:h-[620px]"
               />
@@ -842,21 +843,86 @@ ${formData.message}
         </div>
       </section>
 
-      <div className="mx-auto mt-10 max-w-[1280px]">
-  <a
-    href="/miyawaki-forest-nagpur"
-    className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[var(--green)] px-8 text-sm font-extrabold text-white shadow-lg transition hover:bg-[var(--green-soft)]"
-  >
-    Explore Miyawaki Forest Development in Nagpur →
-  </a>
-</div>
+      <h2 className="mb-8 text-center text-3xl font-semibold text-[var(--green)]">
+  Explore More About Miyawaki Forests
+</h2>
 
-<a
-  href="/miyawaki-forest-india"
-  className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[var(--green)] px-8 text-center text-sm font-extrabold text-white shadow-lg transition hover:bg-[var(--green-soft)]"
->
-  Explore Miyawaki Forest Development in India →
-</a>
+<p className="mx-auto mb-12 max-w-2xl text-center text-gray-600">
+  Learn more about Miyawaki forest development, CSR plantation projects,
+  native tree plantations and urban forests across India and Nagpur.
+</p>
+
+  <div className="mt-12 flex flex-col gap-4 md:flex-row md:flex-wrap md:justify-center">
+
+  <Link
+    href="/miyawaki-forest-india"
+    className="w-full md:w-[340px] rounded-2xl border border-[#b9d3bf] bg-[#eef7f0] px-5 py-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <p className="text-lg md:text-xl font-bold text-[#184d33]">
+      Miyawaki Forest India
+    </p>
+
+    <p className="mt-2 text-sm text-gray-600">
+      CSR plantation and native forest development across India.
+    </p>
+
+    <span className="mt-4 inline-block font-semibold text-[#184d33]">
+      Read More →
+    </span>
+  </Link>
+
+  <Link
+    href="/miyawaki-forest-maharashtra"
+    className="w-full md:w-[340px] rounded-2xl border border-[#b9d3bf] bg-[#eef7f0] px-5 py-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <p className="text-lg md:text-xl font-bold text-[#184d33]">
+      Miyawaki Forest Maharashtra
+    </p>
+
+    <p className="mt-2 text-sm text-gray-600">
+      Miyawaki forests, CSR plantations and urban forests across Maharashtra.
+    </p>
+
+    <span className="mt-4 inline-block font-semibold text-[#184d33]">
+      Read More →
+    </span>
+  </Link>
+
+  <Link
+    href="/miyawaki-forest-nagpur"
+    className="w-full md:w-[340px] rounded-2xl border border-[#b9d3bf] bg-[#eef7f0] px-5 py-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <p className="text-lg md:text-xl font-bold text-[#184d33]">
+      Miyawaki Forest Nagpur
+    </p>
+
+    <p className="mt-2 text-sm text-gray-600">
+      Miyawaki forests and CSR plantation projects in Nagpur.
+    </p>
+
+    <span className="mt-4 inline-block font-semibold text-[#184d33]">
+      Read More →
+    </span>
+  </Link>
+
+  <Link
+    href="/csr-tree-plantation-nagpur"
+    className="w-full md:w-[340px] rounded-2xl border border-[#b9d3bf] bg-[#eef7f0] px-5 py-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <p className="text-lg md:text-xl font-bold text-[#184d33]">
+      CSR Tree plantation in Nagpur
+    </p>
+
+    <p className="mt-2 text-sm text-gray-600">
+      CSR plantation and native forest development in Nagpur.
+    </p>
+
+    <span className="mt-4 inline-block font-semibold text-[#184d33]">
+      Read More →
+    </span>
+  </Link>
+
+</div>
 
       {/* Contact */}
       <section

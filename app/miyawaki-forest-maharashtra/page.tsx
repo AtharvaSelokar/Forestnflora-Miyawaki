@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "ForestnFlora Miyawaki",
     images: [
       {
-        url: `${SITE_URL}/images/hero-desktop.jpg`,
+        url: `${SITE_URL}/images/hero-desktop.webp`,
         width: 1920,
         height: 1080,
         alt: "Dense native Miyawaki forest development in Maharashtra",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Miyawaki Forest Development in Maharashtra | ForestnFlora",
     description:
       "Miyawaki plantation, CSR forest projects and industrial green belt development across Maharashtra.",
-    images: [`${SITE_URL}/images/hero-desktop.jpg`],
+    images: [`${SITE_URL}/images/hero-desktop.webp`],
   },
 };
 
@@ -292,9 +292,9 @@ const serviceJsonLd = {
     "ForestnFlora provides planning, native species selection, soil preparation, dense plantation, maintenance and growth monitoring for suitable projects across Maharashtra.",
   url: PAGE_URL,
   image: [
-    `${SITE_URL}/images/hero-desktop.jpg`,
-    `${SITE_URL}/images/miyawaki-forest-maharashtra.jpg`,
-    `${SITE_URL}/images/project-1.jpg`,
+    `${SITE_URL}/images/hero-desktop.webp`,
+    `${SITE_URL}/images/miyawaki-forest-maharashtra.webp`,
+    `${SITE_URL}/images/project-1.webp`,
   ],
   areaServed: {
     "@type": "AdministrativeArea",
@@ -353,7 +353,7 @@ function HeroImage() {
     props: { srcSet: desktopImage },
   } = getImageProps({
     ...common,
-    src: "/images/hero-desktop.jpg",
+    src: "/images/hero-desktop.webp",
     width: 1920,
     height: 1080,
   });
@@ -362,7 +362,7 @@ function HeroImage() {
     props: { srcSet: mobileImage, ...mobileImageProps },
   } = getImageProps({
     ...common,
-    src: "/images/hero-mobile.jpg",
+    src: "/images/hero-mobile.webp",
     width: 900,
     height: 1600,
   });
@@ -621,7 +621,7 @@ export default function MiyawakiForestMaharashtraPage() {
 
           <div className="overflow-hidden rounded-[26px]">
             <Image
-              src="/images/miyawaki-forest-maharashtra.jpg"
+              src="/images/miyawaki-forest-maharashtra.webp"
               alt="Dense native Miyawaki forest development in Maharashtra"
               width={1400}
               height={1000}
@@ -730,7 +730,7 @@ export default function MiyawakiForestMaharashtraPage() {
           <figure>
             <div className="overflow-hidden rounded-[26px]">
               <Image
-                src="/images/miyawaki-plantation-maharashtra.jpg"
+                src="/images/miyawaki-plantation-maharashtra.webp"
                 alt="ForestnFlora carrying out Miyawaki plantation work in Maharashtra"
                 width={1600}
                 height={1000}
@@ -827,7 +827,7 @@ export default function MiyawakiForestMaharashtraPage() {
         <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
           <div className="overflow-hidden rounded-[26px]">
             <Image
-              src="/images/project-1.jpg"
+              src="/images/project-1.webp"
               alt="Butibori MIDC Miyawaki forest project in Maharashtra"
               width={1400}
               height={1000}

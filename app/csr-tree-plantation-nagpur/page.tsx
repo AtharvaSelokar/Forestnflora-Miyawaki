@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "ForestnFlora Miyawaki",
     images: [
       {
-        url: `${SITE_URL}/images/csr-tree-plantation-nagpur-hero.jpg`,
+        url: `${SITE_URL}/images/csr-tree-plantation-nagpur-hero.webp`,
         width: 1920,
         height: 1080,
         alt: "CSR tree plantation project in Nagpur by ForestnFlora Miyawaki",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "CSR Tree Plantation in Nagpur | ForestnFlora",
     description:
       "CSR plantation, employee engagement, Miyawaki forest development and project reporting in Nagpur.",
-    images: [`${SITE_URL}/images/csr-tree-plantation-nagpur-hero.jpg`],
+    images: [`${SITE_URL}/images/csr-tree-plantation-nagpur-hero.webp`],
   },
 };
 
@@ -168,17 +168,17 @@ const benefits = [
 
 const gallery = [
   {
-    src: "/images/csr-employee-plantation-nagpur.jpg",
+    src: "/images/service-2.webp",
     alt: "Employees participating in a CSR tree plantation drive in Nagpur",
     caption: "Employee plantation drive and on-ground participation",
   },
   {
-    src: "/images/csr-miyawaki-project-nagpur.jpg",
+    src: "/images/project-1.webp",
     alt: "Dense native CSR Miyawaki forest project in Nagpur",
     caption: "CSR Miyawaki forest and dense native plantation",
   },
   {
-    src: "/images/csr-plantation-monitoring-nagpur.jpg",
+    src: "/images/csr-plantation-project-india1.webp",
     alt: "CSR plantation growth monitoring and documentation in Nagpur",
     caption: "Plantation monitoring, documentation and progress updates",
   },
@@ -334,7 +334,7 @@ function HeroImage() {
     props: { srcSet: desktopImage },
   } = getImageProps({
     ...common,
-    src: "/images/csr-tree-plantation-nagpur-hero.jpg",
+    src: "/images/hero-desktop.webp",
     width: 1920,
     height: 1080,
   });
@@ -343,7 +343,7 @@ function HeroImage() {
     props: { srcSet: mobileImage, ...mobileImageProps },
   } = getImageProps({
     ...common,
-    src: "/images/csr-tree-plantation-nagpur-mobile.jpg",
+    src: "/images/hero-mobile.webp",
     width: 900,
     height: 1600,
   });
@@ -601,7 +601,7 @@ export default function CsrTreePlantationNagpurPage() {
 
           <div className="overflow-hidden rounded-[26px]">
             <Image
-              src="/images/csr-tree-plantation-nagpur-main.jpg"
+              src="/images/corporate-planation.webp"
               alt="Corporate CSR tree plantation project in Nagpur"
               width={1400}
               height={1000}
@@ -809,7 +809,7 @@ export default function CsrTreePlantationNagpurPage() {
         <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
           <div className="overflow-hidden rounded-[26px]">
             <Image
-              src="/images/project-1.jpg"
+              src="/images/project-1.webp"
               alt="Butibori MIDC industrial Miyawaki forest project near Nagpur"
               width={1400}
               height={1000}

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "ForestnFlora Miyawaki",
     images: [
       {
-        url: `${SITE_URL}/images/hero-desktop.jpg`,
+        url: `${SITE_URL}/images/hero-desktop.webp`,
         width: 1920,
         height: 1080,
         alt: "Dense native Miyawaki forest development in India",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Miyawaki Forest Development Company in India | ForestnFlora",
     description:
       "Miyawaki plantation, CSR forest projects, native forests and industrial green belt development across India.",
-    images: [`${SITE_URL}/images/hero-desktop.jpg`],
+    images: [`${SITE_URL}/images/hero-desktop.webp`],
   },
 };
 
@@ -207,25 +207,21 @@ const nationalModel = [
 
 const projectGallery = [
   {
-    src: "/images/miyawaki-soil-preparation-india.jpg",
+    src: "/images/miyawaki-soil-preparation-india.webp",
     alt: "Organic soil preparation for a Miyawaki forest project in India",
     caption: "Soil preparation and organic enrichment",
   },
   {
-    src: "/images/native-species-plantation-india.jpg",
+    src: "/images/native-species-plantation-india.webp",
     alt: "Mixed native species plantation for dense forest development in India",
     caption: "Dense plantation with locally suitable native species",
   },
   {
-    src: "/images/csr-plantation-project-india.jpg",
+    src: "/images/csr-plantation-project-india.webp",
     alt: "Corporate CSR plantation project and employee participation in India",
     caption: "CSR plantation and employee participation",
   },
-  {
-    src: "/images/industrial-green-belt-india.jpg",
-    alt: "Industrial green belt and native forest development in India",
-    caption: "Industrial green belt and native forest development",
-  },
+  
 ];
 
 const faqs = [
@@ -311,9 +307,8 @@ const serviceJsonLd = {
     "ForestnFlora provides planning, native species selection, soil preparation, dense Miyawaki plantation, maintenance and growth monitoring for selected projects across India.",
   url: PAGE_URL,
   image: [
-    `${SITE_URL}/images/hero-desktop.jpg`,
-    `${SITE_URL}/images/miyawaki-forest-india-established.jpg`,
-    `${SITE_URL}/images/industrial-green-belt-india.jpg`,
+    `${SITE_URL}/images/hero-desktop.webp`,
+    `${SITE_URL}/images/miyawaki-forest-india-established.webp`,
   ],
   areaServed: {
     "@type": "Country",
@@ -372,7 +367,7 @@ function HeroImage() {
     props: { srcSet: desktopImage },
   } = getImageProps({
     ...common,
-    src: "/images/hero-desktop.jpg",
+    src: "/images/hero-desktop.webp",
     width: 1920,
     height: 1080,
   });
@@ -381,7 +376,7 @@ function HeroImage() {
     props: { srcSet: mobileImage, ...mobileImageProps },
   } = getImageProps({
     ...common,
-    src: "/images/hero-mobile.jpg",
+    src: "/images/hero-mobile.webp",
     width: 900,
     height: 1600,
   });
@@ -635,7 +630,7 @@ export default function MiyawakiForestIndiaPage() {
 
           <div className="overflow-hidden rounded-[26px]">
             <Image
-              src="/images/miyawaki-forest-india-established.jpg"
+              src="/images/miyawaki-forest-india-established.webp"
               alt="Established dense native Miyawaki forest in India"
               width={1400}
               height={1000}
@@ -835,7 +830,7 @@ export default function MiyawakiForestIndiaPage() {
         <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
           <div className="overflow-hidden rounded-[26px]">
             <Image
-              src="/images/project-1.jpg"
+              src="/images/project-1.webp"
               alt="Butibori MIDC industrial Miyawaki forest project by ForestnFlora"
               width={1400}
               height={1000}

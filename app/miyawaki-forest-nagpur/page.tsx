@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "ForestnFlora Miyawaki",
     images: [
       {
-        url: `${SITE_URL}/images/hero-desktop.jpg`,
+        url: `${SITE_URL}/images/hero-desktop.webp`,
         width: 1920,
         height: 1080,
         alt: "Dense native Miyawaki forest development in Nagpur",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Miyawaki Forest Development in Nagpur | ForestnFlora",
     description:
       "Miyawaki plantation, CSR plantation and industrial green belt development services in Nagpur.",
-    images: [`${SITE_URL}/images/hero-desktop.jpg`],
+    images: [`${SITE_URL}/images/hero-desktop.webp`],
   },
 };
 
@@ -252,7 +252,7 @@ const serviceJsonLd = {
   description:
     "ForestnFlora provides site assessment, native species selection, soil preparation, Miyawaki plantation, establishment care and growth monitoring in Nagpur.",
   url: PAGE_URL,
-  image: `${SITE_URL}/images/hero-desktop.jpg`,
+  image: `${SITE_URL}/images/hero-desktop.webp`,
   areaServed: [
     { "@type": "City", name: "Nagpur" },
     { "@type": "AdministrativeArea", name: "Vidarbha" },
@@ -311,7 +311,7 @@ function HeroImage() {
     props: { srcSet: desktopImage },
   } = getImageProps({
     ...common,
-    src: "/images/hero-desktop.jpg",
+    src: "/images/hero-desktop.webp",
     width: 1920,
     height: 1080,
   });
@@ -320,7 +320,7 @@ function HeroImage() {
     props: { srcSet: mobileImage, ...mobileImageProps },
   } = getImageProps({
     ...common,
-    src: "/images/hero-mobile.jpg",
+    src: "/images/hero-mobile.webp",
     width: 900,
     height: 1600,
   });
@@ -538,7 +538,7 @@ export default function MiyawakiForestNagpurPage() {
 
           <div className="overflow-hidden rounded-[28px]">
             <Image
-              src="/images/about-forest.jpg"
+              src="/images/about-forest.webp"
               alt="Dense native Miyawaki plantation developed near Nagpur"
               width={1200}
               height={900}
@@ -687,7 +687,7 @@ export default function MiyawakiForestNagpurPage() {
           <figure>
             <div className="overflow-hidden rounded-[28px]">
               <Image
-                src="/images/miyawaki-plantation-nagpur.jpg"
+                src="/images/miyawaki-plantation-nagpur.webp"
                 alt="ForestnFlora team carrying out Miyawaki plantation work in Nagpur"
                 width={1600}
                 height={1000}
@@ -708,7 +708,7 @@ export default function MiyawakiForestNagpurPage() {
         <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
           <div className="overflow-hidden rounded-[28px]">
             <Image
-              src="/images/project-1.jpg"
+              src="/images/project-1.webp"
               alt="Butibori MIDC Miyawaki forest project near Nagpur"
               width={1400}
               height={1000}
