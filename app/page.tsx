@@ -420,12 +420,12 @@ ${formData.message}
           lineHeight: "0.98",
         }}
       >
-        Build a forest, not just a plantation.
+        Transforming Empty Land
+Into Thriving Native Forests.
       </h1>
 
       <p className="mt-4 max-w-2xl text-[13px] font-medium leading-6 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] md:mt-6 md:text-[22px] md:leading-10">
-        Dense, biodiverse, native forests for CSR projects, industries, campuses
-        and civic land across Nagpur and Maharashtra.
+        ForestnFlora designs and develops dense Miyawaki forests for CSR initiatives, industries, educational campuses and public spaces across India.
       </p>
 
       <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/45 pt-4 md:mt-8 md:max-w-3xl md:grid-cols-4 md:gap-5 md:pt-6">
